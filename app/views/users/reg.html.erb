@@ -1,3 +1,68 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+var current_fs, next_fs, previous_fs;
+var left, opacity, scale;
+var animating;
+
+$(".next").click(function(){
+  current_fs =$(this).parent();
+  next_fs = $(this).parent().next();
+
+  $("#progreso li").eq($("fieldset").index(next_fs)).addClass("active");
+
+  next_fs.show();
+
+  current_fs.animate({opacity:0},{
+    setp: function(now, mx){
+      scale = 1 - (1 - now)*0.2;
+      left = (now *50)+"%";
+
+      opacity =1 - now;
+      current_fs.css({'transform':'scale('+scale+')'});
+      next_fs.css({'left':left,'opacity':opacity});
+    },
+    duration: 800,
+    complete: function(){
+      current_fs.hide();
+    },
+    easing: 'easeInOutBack'
+  });
+});
+
+$(".previous").click(function(){
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+
+
+  $("#progreso li").eq($("fieldset").index(current_fs)).reniveClass("active");
+
+  previous_fs.show();
+
+  current_fs.animate({opacity:0},{
+    setp:function(now,mx){
+      0.8 + (1-now)*0.2;
+      left = ((1-now)*50)+"%";
+
+      opacity = 1-now;
+      current_fs.css({'left':left});
+      previous_fs.css({'transform':'scale('+scale')','opacity':opacity});
+    },
+    duration:800,
+    complete:function(){
+      current_fs.hide();
+    },
+    easing:'easeInOutBack'
+  });
+});
+
+$(".submit").click(function(){
+  return false;
+})
+
+});
+
+</script>
 <%= render "logout" %>
   <div class="col-md-4">
       <h1>Registro</h1>
@@ -7,14 +72,68 @@
     </nav>
   </div>
 <div class="col-md-6">
+  <div class="card-form">
+    <form class="" action="" method="post" id="form">
+      <ul id="progreso">
+        <li class="active">Tu calle</li>
+        <li>Tu zona</li>
+        <li>Otros</li>
+      </ul>
+    </form>
 
+    <fieldset>
+      <h2 class="fs-title">Evalua tu calle</h2>
+      <h3 class="fs-subtitle">Paso 1</h3>
+      <select class="" name="">
+        <option value="option">Eixample</option>
+      </select>
+      <br>
+      <input type="text" name="calle" value="" placeholder="Calle" />
+      <br>
+      <input type="text" name="numero" value="" placeholder="numero" />
+      <br>
+      <input type="text" name="cp" value="" placeholder="Codigo postal" />
+      <br>
+      <textarea name="name" rows="8" cols="40"></textarea>
+      <input type="button" name="next" value="Siguiente" class="next action-button">
+    </fieldset>
 
+    <fieldset>
+      <h2 class="fs-title">Evalua tu zona</h2>
+      <h3 class="fs-subtitle">Paso 2</h3>
+      <br>
+      <label>Como definirias tu zona?</label>
+      <br>
+      <label>Peligrosa</label>
+      <br>
+      <label>Tranquilidad</label>
+      <br>
+      <label>Limpia</label>
+      <br>
+      <label>Ruido</label>
+      <br>
+      <label>Transporte publico</label>
+      <br>
+      <input type="button" name="previous" value="Previo" class="previous action-button">
+      <input type="button" name="next" value="Siguiente" class="next action-button">
+    </fieldset>
 
-
-
-
-
-
-
-
+    <fieldset>
+      <h2 class="fs-title">Evalua tu zona</h2>
+      <h3 class="fs-subtitle">Paso 2</h3>
+      <br>
+      <label>Vivienda(compra)</label>
+      <br>
+      <label>Vivienda(Alquiler)</label>
+      <br>
+      <label>Comercios</label>
+      <br>
+      <label>Nivel de vida</label>
+      <br>
+      <label>Supermercados</label>
+      <br>
+      <input type="button" name="previous" value="Previo" class="previous action-button">
+      <input type="button" name="next" value="Siguiente" class="next action-button">
+    </fieldset>
+  </div>
 </div>
