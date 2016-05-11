@@ -16,6 +16,10 @@ def index
   # binding.pry
 end
 
+def reg
+
+end
+
 def new
 end
 
