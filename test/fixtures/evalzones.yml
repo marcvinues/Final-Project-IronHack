@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  definestreet: MyString
+  satisfaction: MyString
+  noise: MyString
+  vecinos: MyString
+  coments: MyString
+  defzone: MyString
+  danger: MyString
+  quiet: MyString
+  clean: MyString
+  noisezone: MyString
+  publictransport: MyString
+  placerent: MyString
+  placesell: MyString
+  supermarkets: MyString
+
+two:
+  definestreet: MyString
+  satisfaction: MyString
+  noise: MyString
+  vecinos: MyString
+  coments: MyString
+  defzone: MyString
+  danger: MyString
+  quiet: MyString
+  clean: MyString
+  noisezone: MyString
+  publictransport: MyString
+  placerent: MyString
+  placesell: MyString
+  supermarkets: MyString

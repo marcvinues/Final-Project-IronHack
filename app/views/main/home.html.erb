@@ -10,12 +10,7 @@
 <div class="container-fluid">
   <div class="row">
     <% if logged_in? %>
-    <div class="top-menu">
-        <ul>
-          <li><a href="/mizona">Mi zona</a></li>
-          <li><%= link_to "Log out", "/logout", :method => :delete %></li>
-        </ul>
-    </div>
+  <%= render "logout" %> 
     <% else %>
     <div class="top-menu">
         <ul>

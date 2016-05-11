@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511085947) do
+ActiveRecord::Schema.define(version: 20160511180849) do
+
+  create_table "evalzones", force: :cascade do |t|
+    t.string   "definestreet"
+    t.string   "satisfaction"
+    t.string   "noise"
+    t.string   "vecinos"
+    t.string   "coments"
+    t.string   "defzone"
+    t.string   "danger"
+    t.string   "quiet"
+    t.string   "clean"
+    t.string   "noisezone"
+    t.string   "publictransport"
+    t.string   "placerent"
+    t.string   "placesell"
+    t.string   "supermarkets"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
