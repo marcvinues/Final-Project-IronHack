@@ -10,9 +10,9 @@
   <div class="card-form">
     <form class="" action="" method="post" id="formulario">
     <fieldset>
-      <h2 class="fs-title">Evalua tu calle</h2>
+      <h2 class="fs-title">Queremos que evalua tu calle</h2>
       <h3 class="fs-subtitle">Paso 1</h3>
-      <select class="" name="">
+      <select class="form-control" name="">
         <option value="ciutatvella">Ciutat Vella</option>
         <option value="Eixmaple">Eixample</option>
         <option value="gracia">Gràcia</option>
@@ -37,22 +37,38 @@
     </fieldset>
 
     <fieldset>
-      <h2 class="fs-title">Evalua tu zona</h2>
+      <h2 class="fs-title">Y ahora tu zona</h2>
       <h3 class="fs-subtitle">Paso 2</h3>
       <br>
       <label>Como definirias tu zona?</label>
+      <input id="input-1" value="4.3" class="rating-loading">
       <br>
       <label>Peligrosa</label>
+      <input id="input-2" value="4.3" class="rating-loading">
       <br>
       <label>Tranquilidad</label>
+      <input id="input-3" value="4.3" class="rating-loading">
       <br>
       <label>Limpia</label>
+      <input id="input-4" value="4.3" class="rating-loading">
       <br>
       <label>Ruido</label>
+      <input id="input-5" value="4.3" class="rating-loading">
       <br>
       <label>Transporte publico</label>
+      <input id="input-6" value="4.3" class="rating-loading">
+        <script>
+        $(document).on('ready', function(){
+          $('#input-1').rating({min: 0, max: 5, step: 0.1, stars: 5});
+          $('#input-2').rating({min: 0, max: 5, step: 0.1, stars: 5});
+          $('#input-3').rating({min: 0, max: 5, step: 0.1, stars: 5});
+          $('#input-4').rating({min: 0, max: 5, step: 0.1, stars: 5});
+          $('#input-5').rating({min: 0, max: 5, step: 0.1, stars: 5});
+          $('#input-6').rating({min: 0, max: 5, step: 0.1, stars: 5});
+        });
+        </script>
       <br>
-      <input type="button" name="previous" value="Previo" class="previous action-button">
+      <input type="button" name="previous" value="Atras" class="previous action-button">
       <input type="button" name="next" value="Siguiente" class="next action-button">
     </fieldset>
 
@@ -70,8 +86,8 @@
       <br>
       <label>Supermercados</label>
       <br>
-      <input type="button" name="previous" value="Previo" class="previous action-button">
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+      <input type="button" name="previous" value="Atras" class="previous action-button">
+      <input type="submit" name="submit" class="submit action-button" value="Enviar" />
     </fieldset>
     </form>
   </div>
