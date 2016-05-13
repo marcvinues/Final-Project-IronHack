@@ -167,6 +167,43 @@
   opacity: 0;
   text-shadow: 2px 2px 2px #c9c9c9;
 }
+.text-an-t{
+  color:#fff;
+  font-size: 3.5em;
+  font-weight: bold;
+  animation: textt 5s 4s forwards;
+  -webkit-animation: textt 5s 8s forwards;
+  left:170px;
+  top:530px;
+  position: absolute;
+  opacity: 0;
+  text-shadow: 2px 2px 2px #c9c9c9;
+}
+.text-an-f{
+  color:#fff;
+  font-size: 3.5em;
+  font-weight: bold;
+  animation: textf 5s 4s forwards;
+  -webkit-animation: textf 5s 12s forwards;
+  left:540px;
+  top:130px;
+  position: absolute;
+  opacity: 0;
+  text-shadow: 2px 2px 2px #c9c9c9;
+}
+.text-an-g{
+  color:#fff;
+  font-size: 5.2em;
+  font-weight: bold;
+  animation: textg 5s 4s forwards;
+  -webkit-animation: textg 5s 15s forwards;
+  left:20%;
+  top:315px;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  text-shadow: 2px 2px 2px #c9c9c9;
+}
 @keyframes text{
   0%{opacity: 0;}
   80%{top:20px;opacity: 1;}
@@ -178,10 +215,40 @@
   100%{top:20px;opacity: 0;}
 }
 @keyframes texts{
-  from{opacity: 0;}
-  to{left:220px;opacity: 1;}
+  0%{opacity: 0;}
+  80%{left:220px;opacity: 1;}
+  100%{left:220px;opacity: 0;}
 }
 @-webkit-keyframes texts{
+  0%{opacity: 0;}
+  80%{left:220px;opacity: 1;}
+  100%{left:220px;opacity: 0;}
+}
+@keyframes textt{
+  0%{opacity: 0;}
+  80%{top:220px;opacity: 1;}
+  100%{top:220px;opacity: 0;}
+}
+@-webkit-keyframes textt{
+  0%{opacity: 0;}
+  80%{top:220px;opacity: 1;}
+  100%{top:220px;opacity: 0;}
+}
+@keyframes textf{
+  0%{opacity: 0;}
+  80%{top:420px;opacity: 1;}
+  100%{top:420px;opacity: 0;}
+}
+@-webkit-keyframes textf{
+  0%{opacity: 0;}
+  80%{top:420px;opacity: 1;}
+  100%{top:420px;opacity: 0;}
+}
+@keyframes textg{
   from{opacity: 0;}
-  to{left:220px;opacity: 1;}
+  to{opacity: 1;}
+}
+@-webkit-keyframes textg{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
