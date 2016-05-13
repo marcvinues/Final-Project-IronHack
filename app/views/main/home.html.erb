@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-     <script src="http://maps.google.com/maps/api/js?sensor=false"
-          type="text/javascript"></script>
-    <title>Index</title>
-  </head>
-  <body>
 <div class="container-fluid">
   <div class="row">
     <% if logged_in? %>
-  <%= render "logout" %> 
+  <%= render "logout" %>
     <% else %>
     <div class="top-menu">
         <ul>
@@ -20,29 +11,49 @@
     </div>
 
     <% end %>
-<div class="map" style="width:100%;height:320px;" id="map"></div>
+<!-- <div class="map" style="width:100%;height:320px;" id="map"></div> -->
 </div>
 </div>
-<div class="col-sm-12">
+
+<div class="row">
+  <div class="col-md-12 portada-text">
+    <div class="img-back"></div>
+    <p class="text-an-o">
+      ¿Quieres saber como es tu zona?
+    </p>
+    <p class="text-an-s">
+      ¿Saber lo que opinan los que viven cerca de tí?
+    </p>
+  </div>
+  <!-- <div class="col-md-4 portada-text-second">
+    <p class="text-an-s">
+      Saber lo que opinan los que viven cerca de tí
+    </p>
+  </div> -->
+
+<div class="col-md-12">
   <div class="searcher" style="padding:20px 20px;">
-    <form class="form-inline" action="index.html" method="post">
-      <div class="container-buttons">
-        <button type="button" name="button" class="buttons-filter">Precio</button>
-        <button type="button" name="button" class="buttons-filter">Tranquilidad</button>
-        <button type="button" name="button" class="buttons-filter">Seguridad</button>
-        <button type="button" name="button" class="buttons-filter">Transporte</button>
-      </div>
-      <div class="form-group col-sm-11">
-      <input type="text" name="name" value="" class="form-control" style="width:100%;" placeholder="Busca tu barrio">
-    </div>
-    <button type="button" name="button" class="btn btn-danger">Buscar</button>
-    </form>
+    <!-- <form class="form-inline" method="post"> -->
+        <div id='container'>
+          <div id='gmaps-canvas'></div>
+              <div class="container-buttons">
+                <div id='input'>
+                  <input id='gmaps-input-address' placeholder='Busca tu zona' type='text' />
+                <button type="button" name="button" class="buttons-filter">Precio</button>
+                <button type="button" name="button" class="buttons-filter">Tranquilidad</button>
+                <button type="button" name="button" class="buttons-filter">Seguridad</button>
+                <button type="button" name="button" class="buttons-filter">Transporte</button>
+              </div>
+            <div id='gmaps-error'></div>
+          </div>
+
+        </div>
+</div>
+    <!-- </form> -->
     <!-- End form-->
     <div class="contingut-ext">
 
     </div>
   </div>
 </div>
-<script src="assets/maps/maps.js" charset="utf-8"></script>
-  </body>
-</html>
+<!-- <script src="assets/maps/maps.js" charset="utf-8"></script> -->

@@ -29,6 +29,9 @@ gem 'devise'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'jquery-ui-rails'
+gem 'gmaps-autocomplete-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'pry'
