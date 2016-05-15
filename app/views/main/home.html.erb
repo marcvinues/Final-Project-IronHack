@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="margin:0 auto;">
   <div class="row">
     <% if logged_in? %>
   <%= render "logout" %>
@@ -27,6 +27,9 @@
     <p class="text-an-g">REGISTRATE Y AVERIGUALO!</p>
   </div>
   </div>
+  <div class="arrow-down">
+  <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt="" /></a>
+  </div>
 <script>
 
 $(function() {
@@ -45,11 +48,7 @@ $(function() {
 });
 </script>
 <div class="row">
-  <div class="" style="position: relative;
-    text-align: center;
-    top: 20px;">
-  <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt="" /></a>
-  </div>
+
 </div>
 <div class="row">
 <div class="col-md-12" id="index-content" style="margin-top:220px;">

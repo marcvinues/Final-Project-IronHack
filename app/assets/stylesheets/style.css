@@ -136,7 +136,7 @@ body{
 /*#map { position:absolute; top:60px; bottom:0; width:100%; }*/
 .portada-text{
 
-  height: 700px;
+  height: 100vh;
 }
 .img-back{
   background-image:url('bcn4k.jpg');
@@ -147,7 +147,7 @@ body{
   width: 100%;
   height: 100vh;
   position: absolute;
-  top:-100px;
+
   z-index: -999;
 }
 .text-an-o{
@@ -362,4 +362,20 @@ footer{
   text-align: center;
   padding-top:50px;
   font-size: .8em;
+
+}
+.arrow-down{
+  text-align: center;
+  left:50%;
+  top:-50px;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  animation: arrow 2s;
+  -webkit-animation: arrow 2s infinite;
+}
+@-webkit-keyframes arrow{
+  0%{opacity: 0;}
+  50%{opacity: 1;}
+  100%{opacity: 0;}
 }
