@@ -60,10 +60,17 @@ $(function() {
               <div class="container-buttons">
                 <div id='input'>
                   <input id='gmaps-input-address' placeholder='Busca tu zona' type='text' />
-                <button type="button" name="button" class="buttons-filter">Precio</button>
-                <button type="button" name="button" class="buttons-filter">Tranquilidad</button>
-                <button type="button" name="button" class="buttons-filter">Seguridad</button>
-                <button type="button" name="button" class="buttons-filter">Transporte</button>
+                <button type="button" name="btnprice" class="buttons-filter">Precio</button>
+                <button type="button" name="btntranq" class="buttons-filter">Tranquilidad</button>
+                <button type="button" name="btnsafe" class="buttons-filter">Seguridad</button>
+                <button type="button" name="btntrans" class="buttons-filter">Transporte</button>
+                <script>
+                $('.buttons-filter').on('click',function(){
+                  // debugger
+                  $(this).toggleClass('active');
+                });
+
+                </script>
               </div>
             <div id='gmaps-error'></div>
           </div>

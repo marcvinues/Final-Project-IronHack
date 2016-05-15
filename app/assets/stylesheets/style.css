@@ -7,13 +7,13 @@ body{
   height: 30px;
 }
   .buttons-filter{
-    width: 60px;
-    height: 30px;
-    padding:3px 3px;
+    width: 100px;
+    height: 40px;
+    padding:10px 20px;
     border-radius: 3px 3px;
     border: 1px solid lightgrey;
-    background-color:#fff;
-    color:#b9b9b9;
+    background-color:#c9c9c9;
+    color:#fff;
     position: relative;
     margin-right:10px;
     left:20px;
@@ -21,22 +21,32 @@ body{
     display: inline;
   }
   .buttons-filter:hover{
-    width: 60px;
-    height: 30px;
-    padding:3px 3px;
-    border-radius: 3px 3px;;
+    width: 100px;
+    height: 40px;
+    padding:10px 20px;
+    border-radius: 3px 3px;
     border: 1px solid lightgrey;
     background-color:#FF1654;
     color:#fff;
+    position: relative;
+    margin-right:10px;
+    left:20px;
+    font-size: .7em;
+    display: inline;
   }
-  .buttons-filter:active{
-    padding:10px 10px;
-    border-radius: 10px 10px;
-    border-top:0;
-    border-left: 0;
+  .active{
+    width: 100px;
+    height: 40px;
+    padding:10px 20px;
+    border-radius: 3px 3px;
     border: 1px solid lightgrey;
     background-color:#FF1654;
     color:#fff;
+    position: relative;
+    margin-right:10px;
+    left:20px;
+    font-size: .7em;
+    display: inline;
   }
   .top-menu{
     z-index: 9999;
@@ -207,8 +217,8 @@ body{
   animation: textg 5s 4s forwards;
   -moz-animation: textg 5s 4s forwards;
   -webkit-animation: textg 5s 15s forwards;
-  left:20%;
-  top:315px;
+  left:25%;
+  top:50%;
   position: absolute;
   text-align: center;
   opacity: 0;
@@ -290,18 +300,18 @@ body{
     margin: 0;
     z-index: 9001; }
 
-    .nav::after {
-      color: white;
-        content: "☰";
-        font-size: 24px;
-        left: 50%;
-        line-height: 1;
-        margin-left: -12px;
-        margin-top: -15px;
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        width: 1em;
+.nav::after {
+    color: white;
+    content: "☰";
+    font-size: 24px;
+    left: 50%;
+    line-height: 1;
+    margin-left: -12px;
+    margin-top: -15px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 1em;
 }
 .nav {
     top:20px;
@@ -367,9 +377,9 @@ footer{
 .arrow-down{
   text-align: center;
   left:50%;
-  top:-50px;
-  width: 50px;
-  height: 50px;
+  top:-100px;
+  width: 100px;
+  height: 100px;
   position: relative;
   animation: arrow 2s;
   -webkit-animation: arrow 2s infinite;
