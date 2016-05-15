@@ -1,34 +1,15 @@
-<div class="container-fluid" style="margin:0 auto;">
-  <div class="row">
-    <% if logged_in? %>
-  <%= render "logout" %>
-    <% else %>
-    <div class="top-menu">
-      <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
-    <label for="checkbox__hack" class="checkbox-hack__label"></label>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="/login">Mi cuenta</a></li>
-          <li class="nav__item"><a href="/signup">Registrarse</a></li>
-        </ul>
-      </nav>
-    </div>
-    <% end %>
-</div>
-
-
 <div class="row">
   <div class="col-md-12 portada-text">
     <div class="img-back"></div>
-    <p class="text-an-o">¿Quieres saber como es tu zona?</p>
-    <p class="text-an-s">¿Saber lo que opinan los que viven en esa zona?</p>
-    <p class="text-an-t">¿La zona que buscas es segura?</p>
-    <p class="text-an-f">¿Tienes todos los servicios mínimos?</p>
-    <p class="text-an-g">REGISTRATE Y AVERIGUALO!</p>
+      <p class="text-an-o">¿Quieres saber como es tu zona?</p>
+      <p class="text-an-s">¿Saber lo que opinan los que viven en esa zona?</p>
+      <p class="text-an-t">¿La zona que buscas es segura?</p>
+      <p class="text-an-f">¿Tienes todos los servicios mínimos?</p>
+      <p class="text-an-g">REGISTRATE Y AVERIGUALO!</p>
   </div>
-  </div>
+</div>
   <div class="arrow-down">
-  <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt="" /></a>
+    <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt="" /></a>
   </div>
 <script>
 
@@ -47,13 +28,11 @@ $(function() {
   });
 });
 </script>
-<div class="row">
 
-</div>
 <div class="row">
-<div class="col-md-12" id="index-content" style="margin-top:220px;">
-  <h1 style="text-align:center">Descúbrelo</h1>
-  <div class="searcher" style="padding:20px 20px;">
+  <div class="col-md-12" id="index-content" >
+    <h1 style="text-align:center">Descúbrelo</h1>
+      <div class="searcher" style="padding:20px 20px;">
     <!-- <form class="form-inline" method="post"> -->
         <div id='container'>
           <div id='gmaps-canvas'></div>
@@ -75,18 +54,10 @@ $(function() {
             <div id='gmaps-error'></div>
           </div>
         </div>
-</div>
+      </div>
     <!-- </form> -->
     <!-- End form-->
-    <div class="contingut-ext">
-
-    </div>
   </div>
 </div>
-</div>
-<footer>
-    <p class="footer-text">
-      Todos los derechos reservados
-    </p>
-</footer>
+
 <!-- <script src="assets/maps/maps.js" charset="utf-8"></script> -->

@@ -1,7 +1,17 @@
-<h1>Login</h1>
-
-<%= form_tag '/login' do %>
-Email: <%= text_field_tag :email %>
-Password: <%= password_field_tag :password %>
-<%= submit_tag "Submit" %>
-<% end %>
+  <div class="row">
+    <div class="col-md-12 backg-form">
+      <div class="backg-form">
+        <h1>Login</h1>
+        <div class="card-form">
+          <%= form_tag '/login', :class => 'form-horizontal' do %>
+          <label>Email:</label> <%= text_field_tag :email %><br>
+          <br>
+          <label>Password:</label> <%= password_field_tag :password %>
+          <br>
+          <br>
+          <%= submit_tag "Submit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
