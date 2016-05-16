@@ -33,9 +33,9 @@ border-bottom: 1px solid #757575;
 }
 input:focus { outline: none; }
 </style>
-<div class="container">
-  <div class="row">
-<h1>Registrate</h1>
+
+  <div class="row" style="height:920px;">
+<h1 style="text-align:center;color:#fff;">Registrate</h1>
 
 
 <%= form_for :user, url: '/users' do |f| %>
@@ -55,11 +55,12 @@ input:focus { outline: none; }
   <%= f.password_field :password_confirmation %>
   <br>
   <br>
-  <%= f.submit "Registrarse" %>
+  <%= f.button "Registrarse" , class: 'btn'%>
 
 <% end %>
 <% flash.each do |key,msg| %>
   <%= content_tag :div, msg, id: key, style:"color:red;" %>
 <% end %>
 </div>
-</div>
+
+<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 936px; width: 2124px; z-index: -999999; position: fixed;"><img style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2124px; height: 1416px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -240px;" src="assets/2.jpg"></div>

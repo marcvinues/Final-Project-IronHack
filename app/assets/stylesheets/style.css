@@ -505,13 +505,8 @@ button.btn {
     -webkit-transition: all .3s;
     -ms-transition: all .3s;
     transition: all .3s;
+    width: 100%;
 }
 .form-bottom form button.btn {
     width: 100%;
-}
-.social-login {
-    margin-top: 35px;
-}
-.social-login-buttons {
-    margin-top: 25px;
 }
