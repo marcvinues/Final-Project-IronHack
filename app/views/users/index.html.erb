@@ -1,15 +1,5 @@
 <div class="container-fluid">
   <div class="row">
-    <% if logged_in? %>
-      <%= render "logout" %>
-    <% else %>
-      <div class="top-menu">
-        <ul>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Registrarse</a></li>
-        </ul>
-      </div>
-    <% end %>
     <div class="col-md-4">
     <h1>Registro</h1>
     <p>Nombre: <%= current_user.username %></p>

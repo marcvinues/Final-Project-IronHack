@@ -11,6 +11,7 @@ function gmaps_init(){
   var options = {
     zoom: 14,
     center: latlng,
+    scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
@@ -26,6 +27,8 @@ function gmaps_init(){
     draggable: true
   });
 
+
+
   // event triggered when marker is dragged and dropped
   google.maps.event.addListener(marker, 'dragend', function() {
     geocode_lookup( 'latLng', marker.getPosition() );
@@ -39,6 +42,9 @@ function gmaps_init(){
 
   $('#gmaps-error').hide();
 }
+
+
+
 
 // move the marker to a new position, and center the map on it
 function update_map( geometry ) {
@@ -148,6 +154,24 @@ function autocomplete_init() {
     }
   });
 }; // autocomplete_init
+
+function showPrice(){
+  var coords =[
+    {lat:41.378134, lng:2.157709},
+    {lat:41.383165, lng:2.150757},
+    {lat:41.387069, lng:2.158160},
+    {lat:41.378134, lng:2.162580}
+  ];
+  var bermudaTriangle = new google.maps.Polygon({
+   paths: coords,
+   strokeColor: '#FF0000',
+   strokeOpacity: 0.8,
+   strokeWeight: 2,
+   fillColor: '#FF0000',
+   fillOpacity: 0.35
+ });
+ bermudaTriangle.setMap(map);
+};
 
 $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
