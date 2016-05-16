@@ -1,17 +1,38 @@
-  <div class="row">
-    <div class="col-md-12 backg-form">
-      <div class="backg-form">
-        <h1>Login</h1>
-        <div class="card-form">
-          <%= form_tag '/login', :class => 'form-horizontal' do %>
-          <label>Email:</label> <%= text_field_tag :email %><br>
-          <br>
-          <label>Password:</label> <%= password_field_tag :password %>
-          <br>
-          <br>
-          <%= submit_tag "Submit" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="top-content" style="height: 940px;">
+              <div class="inner-bg" style="padding: 100px 0 170px 0;">
+                  <div class="container">
+                      <div class="row">
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3 form-box">
+                          	<div class="form-top">
+                          		<div class="form-top-left">
+                          			<h3>Entra en tu cuenta</h3>
+                          		</div>
+                          		<div class="form-top-right">
+                          			<i class="fa fa-key"></i>
+                          		</div>
+                              </div>
+                              <div class="form-bottom">
+                              <%= form_tag '/login', :class => 'login-form' do %>
+  			                    	<div class="form-group">
+  			                    		<label class="sr-only" for="form-username">Username</label>
+                                <%= text_field_tag :email, nil, class: 'form-username form-control', placeholder: 'Email...' %>
+  			                        </div>
+  			                        <div class="form-group">
+  			                        	<label class="sr-only" for="form-password">Password</label>
+                                  <%= password_field_tag :password, nil,  class:'form-password form-control', placeholder: 'Contraseña..' %>
+  			                        </div>
+                                <%= button_tag "Entrar", class: 'btn' %>
+  			                    <% end %>
+  		                    </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 936px; width: 2124px; z-index: -999999; position: fixed;">
+  <img src="assets/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2124px; height: 1416px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -240px;">
+</div>
