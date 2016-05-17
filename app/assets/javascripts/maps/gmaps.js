@@ -232,10 +232,6 @@ function showQuiet(){
     quiet.setMap(map);
 };
 
-
-
-
-
 $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
     gmaps_init();
