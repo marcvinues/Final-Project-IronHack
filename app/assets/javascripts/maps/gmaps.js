@@ -2,6 +2,7 @@ var geocoder;
 var map;
 var marker;
 
+
 // initialise the google maps objects, and add listeners
 function gmaps_init(){
 
@@ -170,8 +171,15 @@ function showPrice(){
    fillColor: '#FF0000',
    fillOpacity: 0.35
  });
- bermudaTriangle.setMap(map);
+    bermudaTriangle.setMap(map);
 };
+$('#btnprice').click(function () {
+    bermudaTriangle.setVisible(null);
+});
+
+
+
+
 
 $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
