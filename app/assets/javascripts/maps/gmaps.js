@@ -1,6 +1,6 @@
 var geocoder;
 var map;
-var marker;
+var markers = new Array();
 
 
 // initialise the google maps objects, and add listeners
@@ -22,47 +22,141 @@ function gmaps_init(){
   // the geocoder object allows us to do latlng lookup based on address
   geocoder = new google.maps.Geocoder();
 
-  // the marker shows us the position of the latest address
-  marker = new google.maps.Marker({
-    map: map,
-    draggable: true
-  });
 
-  var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-        'Aboriginal people of the area. It has many springs, waterholes, '+
-        'rock caves and ancient paintings. Uluru is listed as a World '+
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
-        var infowindow = new google.maps.InfoWindow({
-           content: contentString
-         });
+  // var locations = [
+  //   [contentString, , , 4],
+  //   ['Coogee Beach', ,, 5],
+  //   ['Cronulla Beach', , , 3],
+  //   [contentString, 41.409736, 2.166607, 1]
+  // ];
+
+  var markersData = [
+  {
+      lat: 41.387274,
+      lng: 2.143991,
+      name: "Opinion usuario 1",
+      address1:"calle muntaner",
+      comentarios:" Muy bien cominicado, poco ruido",
+      seguridad: "Zona muy segura",
+      tranquilidad: "Muy tranquilo"
+   },
+   {
+     lat: 41.391186,
+     lng:  2.161039,
+     name: "Opinion usuario 2",
+     address1:"calle calabria",
+     seguridad: "Zona muy segura",
+     comentarios:" Muy bien cominicado, poco ruido",
+     tranquilidad: "Muy tranquilo"
+   },
+   {
+     lat: 41.401769,
+     lng: 2.170201,
+     name: "Opinion usuario 3",
+     address1:"calle aragon",
+     seguridad: "Zona muy segura",
+     comentarios:" Muy bien cominicado, poco ruido",
+     tranquilidad: "Muy tranquilo"
+   } // don’t insert comma in last item
+];
+
+
+  var infoWindow = new google.maps.InfoWindow({
+  //  content: content,
+   //
+  //  // Assign a maximum value for the width of the infowindow allows
+  //  // greater control over the various content elements
+  maxWidth: 350,
+  maxHeight: 200
+ });
+
+ google.maps.event.addListener(map, 'click', function() {
+      infoWindow.close();
+   });
+displayMarkers();
+google.maps.event.addDomListener(window, 'load', gmaps_init);
+
+
+function displayMarkers(){
+
+   // this variable sets the map bounds according to markers position
+   var bounds = new google.maps.LatLngBounds();
+
+   // for loop traverses markersData array calling createMarker function for each marker
+   for (var i = 0; i < markersData.length; i++){
+
+      var latlng = new google.maps.LatLng(markersData[i].lat, markersData[i].lng);
+      var name = markersData[i].name;
+      var address1 = markersData[i].address1;
+      var comentarios = markersData[i].comentarios;
+      var seguridad = markersData[i].seguridad;
+      var tranquilidad = markersData[i].tranquilidad;
+
+      createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad);
+
+      // marker position is added to bounds variable
+      bounds.extend(latlng);
+   }
+
+   // Finally the bounds variable is used to set the map bounds
+   // with fitBounds() function
+   map.fitBounds(bounds);
+}
+
+// This function creates each marker and it sets their Info Window content
+function createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad){
+   var marker = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      title: name
+   });
+
+   // This event expects a click on a marker
+   // When this event is fired the Info Window content is created
+   // and the Info Window is opened.
+   google.maps.event.addListener(marker, 'click', function() {
+
+      // Creating the content to be inserted in the infowindow
+      var iwContent = '<div id="iw-container">' +
+                        '<div class="iw-title">'+name+'</div>' +
+                        '<div class="iw-content">' +
+                          '<div class="iw-subTitle">'+address1+'</div>' +
+                          '<p>'+comentarios+'</p>' +
+                          '<div class="iw-subTitle">Como es la zona?</div>' +
+                          '<p>'+seguridad+'<br>'+
+                          '<div class="iw-subTitle">Es tranquila?</div>' +
+                          '<br>'+tranquilidad+'</p>'+
+                        '</div>' +
+                      '</div>';
+
+      // including content to the Info Window.
+      infoWindow.setContent(iwContent);
+      // opening the Info Window in the current map and at the current marker location.
+      infoWindow.open(map, marker);
+      $('.content-maps').append(iwContent);
+   });
+
+}
 
   // event triggered when marker is dragged and dropped
-  google.maps.event.addListener(marker, 'dragend', function() {
-    geocode_lookup( 'latLng', marker.getPosition() );
-  });
+  // google.maps.event.addListener(marker, 'click', function() {
+  //   // geocode_lookup( 'latLng', marker.getPosition() );
+  //
+  // });
 
   // event triggered when map is clicked
-  google.maps.event.addListener(map, 'click', function(event) {
-    marker.setPosition(event.latLng)
-    geocode_lookup( 'latLng', event.latLng  );
-    infowindow.open(map, marker);
-  });
+  // google.maps.event.addListener(map, 'click', function(event) {
+  //   // marker.setPosition(event.latLng)
+  //   // geocode_lookup( 'latLng', event.latLng  );
+  //   // infowindow.open(map, marker);
+  //   $('.content-maps').append(contentString);
+  // });
+  // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+  //     return function() {
+  //       infowindow.setContent(locations[i][0]);
+  //       infowindow.open(map, marker);
+  //     }
+  //   })(marker, i));
 
   $('#gmaps-error').hide();
 }
@@ -231,6 +325,8 @@ function showQuiet(){
  });
     quiet.setMap(map);
 };
+
+
 
 $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
