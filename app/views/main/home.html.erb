@@ -40,7 +40,7 @@ $(function() {
                 <div id='input'>
                   <input id='gmaps-input-address' placeholder='Busca tu zona' type='text' />
                 <button type="button" name="btnprice" id="btnprice" class="buttons-filter" onclick="showPrice()">Precio</button>
-                <button type="button" name="btntranq" class="buttons-filter">Tranquilidad</button>
+                <button type="button" name="btntranq" class="buttons-filter" onclick="showQuiet()">Tranquilidad</button>
                 <button type="button" name="btnsafe" class="buttons-filter">Seguridad</button>
                 <button type="button" name="btntrans" class="buttons-filter">Transporte</button>
                 <script>
@@ -52,6 +52,8 @@ $(function() {
                 </script>
               </div>
             <div id='gmaps-error'></div>
+            <div id="content_window" style="width:19%; height:100%;
+float:left"></div> 
           </div>
         </div>
       </div>
