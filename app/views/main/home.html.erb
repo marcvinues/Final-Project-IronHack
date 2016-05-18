@@ -1,71 +1,70 @@
 <div class="row">
-  <div class="col-md-12 portada-text">
-    <div class="img-back"></div>
-      <p class="text-an-o">¿Quieres saber como es tu zona?</p>
-      <p class="text-an-s">¿Saber lo que opinan los que viven en esa zona?</p>
-      <p class="text-an-t">¿La zona que buscas es segura?</p>
-      <p class="text-an-f">¿Tienes todos los servicios mínimos?</p>
-      <p class="text-an-g">REGISTRATE Y AVERIGUALO!</p>
-  </div>
+    <div class="col-md-12 portada-text">
+        <div class="img-back"></div>
+        <p class="text-an-o">¿Quieres saber como es tu zona?</p>
+        <p class="text-an-s">¿Saber lo que opinan los que viven en esa zona?</p>
+        <p class="text-an-t">¿La zona que buscas es segura?</p>
+        <p class="text-an-f">¿Tienes todos los servicios mínimos?</p>
+        <p class="text-an-g">REGISTRATE Y AVERIGUALO!</p>
+    </div>
 </div>
-  <div class="arrow-down">
-    <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt="" /></a>
-  </div>
+<div class="arrow-down">
+    <a href="#index-content" style="left: 50%;"><img src="assets/arrow.png" alt=""/></a>
+</div>
 <script>
 
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+    $(function () {
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length
+                    ? target
+                    : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
 </script>
-
 <div class="row">
-  <div class="col-md-12" id="index-content" >
-    <h1 style="text-align:center">Descúbrelo</h1>
-      <div class="searcher">
-    <!-- <form class="form-inline" method="post"> -->
-        <div id='container'>
-          <div id='gmaps-canvas'></div>
-              <div class="container-fluid container-buttons">
-                <div id='input'>
-                  <input id='gmaps-input-address' placeholder='Busca tu zona' type='text' />
-                    <button type="button" name="btnprice" id="btnprice" class="buttons-filter" onclick="showPrice()">Precio</button>
-                    <button type="button" name="btntranq" id="btntranq" class="buttons-filter" onclick="showQuiet()">Tranquilidad</button>
-                    <button type="button" name="btnsafe" id="btnsafe" class="buttons-filter">Seguridad</button>
-                    <button type="button" name="btntrans" id="btntrans" class="buttons-filter">Transporte</button>
+    <div class="col-md-12" id="index-content">
+        <h1 style="text-align:center">Descúbrelo</h1>
+        <div class="searcher">
+            <!-- <form class="form-inline" method="post"> -->
+            <div id='container'>
+                <div id='gmaps-canvas'></div>
+                <div class="container-fluid container-buttons">
+                    <div id='input'>
+                        <input id='gmaps-input-address' placeholder='Busca tu zona' type='text'/>
+                        <button type="button" name="btnprice" id="btnprice" class="buttons-filter" onclick="showPrice()">Precio</button>
+                        <button type="button" name="btntranq" id="btntranq" class="buttons-filter" onclick="showQuiet()">Tranquilidad</button>
+                        <button type="button" name="btnsafe" id="btnsafe" class="buttons-filter">Seguridad</button>
+                        <button type="button" name="btntrans" id="btntrans" class="buttons-filter">Transporte</button>
+                        <script>
+                            $('#btnprice').click(function () {
+                                $(this).prop('disabled', true);
+                            });
+                            $('#btntranq').click(function () {
+                                $(this).prop('disabled', true);
+                            });
 
-                <script>
-                $('#btnprice').click(function(){
-                   $(this).prop('disabled', true);
-                });
-                $('#btntranq').click(function(){
-                   $(this).prop('disabled', true);
-                });
-
-                $('.buttons-filter').on('click',function(){
-                  $(this).toggleClass('active');
-                });
-                </script>
-              </div>
-            <div id='gmaps-error'></div>
-            <div class="row">
-              <div class="content-maps" style="width:100%;padding:30px 30px;"></div>
+                            $('.buttons-filter').on('click', function () {
+                                $(this).toggleClass('active');
+                            });
+                        </script>
+                    </div>
+                    <div id='gmaps-error'></div>
+                    <div class="row">
+                        <div class="content-maps" style="width:100%;padding:30px 30px;"></div>
+                    </div>
+                </div>
             </div>
-
-          </div>
         </div>
-      </div>
-    <!-- </form> -->
-    <!-- End form-->
-  </div>
+        <!-- </form> -->
+        <!-- End form-->
+    </div>
 </div>
