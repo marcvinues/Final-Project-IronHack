@@ -108,7 +108,7 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
    // This event expects a click on a marker
    // When this event is fired the Info Window content is created
    // and the Info Window is opened.
-   google.maps.event.addListener(marker, 'click', function() {
+   var list = google.maps.event.addListener(marker, 'click', function() {
 
       // Creating the content to be inserted in the infowindow
       var iwContent = '<div id="col-md-3"><div id="iw-container">' +
@@ -133,9 +133,12 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
       // including content to the Info Window.
       infoWindow.setContent(iwContent);
       // opening the Info Window in the current map and at the current marker location.
-      infoWindow.open(map, marker);
       $('.content-maps').append(iwContent);
+
+      infoWindow.open(map, marker);
+      list.remove();
    });
+
 
 }
 
@@ -291,37 +294,23 @@ function showPrice(){
     price.setMap(map);
 };
 
-function showPrice(){
-  var coords =[
-    {lat:41.378134, lng:2.157709},
-    {lat:41.383165, lng:2.150757},
-    {lat:41.387069, lng:2.158160},
-    {lat:41.378134, lng:2.162580}
-  ];
-  var price = new google.maps.Polygon({
-   paths: coords,
-   strokeColor: '#FF0000',
-   strokeOpacity: 0.8,
-   strokeWeight: 2,
-   fillColor: '#FF0000',
-   fillOpacity: 0.35
- });
-     price.setMap(map);
-}
 
 function showQuiet(){
   var coords =[
     {lat:41.399154, lng:2.130923},
     {lat:41.406340, lng:2.123745},
     {lat:41.410605, lng:2.129442},
-    {lat:41.404184, lng:2.136738}
+    {lat:41.404184, lng:2.136738},
+    {lat:41.390204, lng:2.127361},
+    {lat:41.398505, lng:2.102900},
+    {lat:41.401853, lng:2.120267}
   ];
   var quiet = new google.maps.Polygon({
    paths: coords,
-   strokeColor: '#FF0000',
+   strokeColor: '#6699ff',
    strokeOpacity: 0.8,
    strokeWeight: 2,
-   fillColor: '#FF0000',
+   fillColor: '#6699ff',
    fillOpacity: 0.35
  });
 
@@ -332,20 +321,15 @@ function showQuiet(){
 }
 
 function showArrays(event) {
-  // Since this polygon has only one path, we can call getPath() to return the
-  // MVCArray of LatLngs.
+
   var vertices = this.getPath();
 
-  var contentString = '<h1>La zona que buscas:</h1><br>' +
-      '<p>Es la zona más tranquila</p>';
+  var contentString = '<div style="font-size:18px;font-weight:bold;padding-left:10px;">La zona que buscas:</div><br>' +
+      '<p style="padding-left:10px;">Es la zona más tranquila</p>';
+    contentString += '<br> *En base a la opinión de los usuarios' ;
 
-  // Iterate over the vertices.
-  // for (var i =0; i < vertices.getLength(); i++) {
-  //   var xy = vertices.getAt(i);
-    contentString += '<br> En base a la opinión de los usuarios' ;
-  // }
+    var priceContent = 'Hola';
 
-  // Replace the info window's content and position.
   infoWindow.setContent(contentString);
   infoWindow.setPosition(event.latLng);
 
