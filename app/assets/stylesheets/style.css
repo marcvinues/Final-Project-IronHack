@@ -173,7 +173,7 @@ body{
 }
 .text-an-s{
   color:#dfdede;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: 700;
   animation: texts 5s 4s forwards;
   -moz-animation: texts 5s 4s forwards;
@@ -199,7 +199,7 @@ body{
 }
 .text-an-f{
   color:#d5d4de;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bold;
   animation: textf 5s 4s forwards;
   -moz-animation: textf 5s 4s forwards;
@@ -217,9 +217,8 @@ body{
   animation: textg 5s 4s forwards;
   -moz-animation: textg 5s 4s forwards;
   -webkit-animation: textg 5s 15s forwards;
-  left:25%;
   top:50%;
-  position: absolute;
+  position: relative;
   text-align: center;
   opacity: 0;
   /*text-shadow: 2px 2px 2px #c9c9c9;*/
@@ -229,13 +228,13 @@ body{
 /********** ANIMATIONS HOME PAGE ****************/
 @keyframes text{
   0%{opacity: 0;}
-  80%{top:20px;opacity: 1;}
-  100%{top:20px;opacity: 0;}
+  80%{top:60px;opacity: 1;}
+  100%{top:60px;opacity: 0;}
 }
 @-webkit-keyframes text{
   0%{opacity: 0;}
-  80%{top:20px;opacity: 1;}
-  100%{top:20px;opacity: 0;}
+  80%{top:60px;opacity: 1;}
+  100%{top:60px;opacity: 0;}
 }
 @keyframes texts{
   0%{opacity: 0;}

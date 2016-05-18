@@ -1,13 +1,14 @@
 var geocoder;
 var map;
 var markers;
-
+var p = true;
 
 // initialise the google maps objects, and add listeners
 function gmaps_init(){
 
   // center of the universe
   var latlng = new google.maps.LatLng(41.3865828,2.1609558);
+  var icons =  'assets/map-marker.png';
 
   var options = {
     zoom: 11,
@@ -100,6 +101,7 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
+      icon: icons,
       title: name
    });
 
@@ -304,8 +306,8 @@ function showPrice(){
    fillColor: '#FF0000',
    fillOpacity: 0.35
  });
-    price.setMap(map);
-};
+     price.setMap(map);
+}
 
 function showQuiet(){
   var coords =[
@@ -327,7 +329,7 @@ function showQuiet(){
    quiet.addListener('click', showArrays);
 
    infoWindow = new google.maps.InfoWindow;
-};
+}
 
 function showArrays(event) {
   // Since this polygon has only one path, we can call getPath() to return the
@@ -356,5 +358,5 @@ $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
     gmaps_init();
     autocomplete_init();
-  };
+  }
 });

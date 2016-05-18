@@ -44,6 +44,10 @@ $(function() {
                 <button type="button" name="btnsafe" class="buttons-filter">Seguridad</button>
                 <button type="button" name="btntrans" class="buttons-filter">Transporte</button>
                 <script>
+                $('#btnprice').click(function(){
+                   $(this).prop('disabled', true);
+                });
+                
                 $('.buttons-filter').on('click',function(){
                   $(this).toggleClass('active');
                 });
