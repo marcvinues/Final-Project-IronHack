@@ -5,6 +5,7 @@ body{
   position: relative;
   top:20px;
   height: 90px;
+  text-align: center;
 }
   .buttons-filter{
     width: 100px;
@@ -510,9 +511,11 @@ button.btn {
     width: 100%;
 }
 /************** MAP INFO WINDOW ***************/
-#gmaps-canvas{margin: 0;
+#gmaps-canvas{
+    margin: 0;
     padding: 0;
-    height: 600px;
+    height: 400px;
+    width: 100%;
     max-width: none;}
 .gm-style-iw {
     width: 350px !important;
@@ -524,9 +527,9 @@ button.btn {
     margin-bottom: 10px;
     width: 320px;
     float: left;
-    margin-right: 10px;
+    margin-right: 30px;
     margin-left:10px;
-    height: 300px;
+    height: 227px;
 }
 #iw-container .iw-title {
     font-size: 22px;

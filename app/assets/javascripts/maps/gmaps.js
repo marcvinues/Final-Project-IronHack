@@ -7,11 +7,11 @@ var p = true;
 function gmaps_init(){
 
   // center of the universe
-  var latlng = new google.maps.LatLng(41.3865828,2.1609558);
+  var latlng = new google.maps.LatLng(41.3979956,2.1402184);
   var icons =  'assets/map-marker.png';
 
   var options = {
-    zoom: 11,
+    zoom: 3,
     center: latlng,
     scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -111,7 +111,7 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
    var list = google.maps.event.addListener(marker, 'click', function() {
 
       // Creating the content to be inserted in the infowindow
-      var iwContent = '<div id="col-md-3"><div id="iw-container">' +
+      var iwContent = '<div class="col-md-4"><div id="iw-container">' +
                         '<div class="iw-title">'+name+'</div>' +
                         '<div class="iw-content">' +
                           '<div class="iw-subTitle">'+address1+'</div>' +
