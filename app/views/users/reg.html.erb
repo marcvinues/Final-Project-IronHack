@@ -8,6 +8,7 @@
   </div>
 <div class="col-md-6">
   <div class="card-form">
+    <!-- <%= form_for :user, :id => 'formulario', url: '/users' do |f| %> -->
     <form class="" action="" method="post" id="formulario">
     <fieldset>
       <h2 class="fs-title">Queremos que evalua tu calle</h2>
@@ -26,12 +27,13 @@
       </select>
       <br>
       <br>
-      <input type="text" name="calle" value="" placeholder="Calle" />
+      <%= f.text_field :calle, placeholder: 'Calle' %>
       <br>
-      <input type="text" name="numero" value="" placeholder="numero" />
+      <%= f.text_field :numero, placeholder: 'Número' %>
       <br>
-      <input type="text" name="cp" value="" placeholder="Codigo postal" />
+      <%= f.text_field :codigopostal, placeholder: 'Código Postal' %>
       <br>
+      <%= text_area(:comentarios, :body, cols: 20, rows: 40, placeholder: "Comentarios") %>
       <textarea name="name" rows="40" cols="80" placeholder="Comentarios"></textarea>
       <input type="button" name="next" value="Siguiente" class="next action-button">
     </fieldset>
@@ -89,7 +91,8 @@
       <input type="button" name="previous" value="Atras" class="previous action-button">
       <input type="submit" name="submit" class="submit action-button" value="Enviar" />
     </fieldset>
-    </form>
+    <!-- </form> -->
+    <% end %>
   </div>
 </div>
 </div>
