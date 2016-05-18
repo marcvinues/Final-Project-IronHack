@@ -1,6 +1,6 @@
 var geocoder;
 var map;
-var markers = new Array();
+var markers;
 
 
 // initialise the google maps objects, and add listeners
@@ -22,14 +22,6 @@ function gmaps_init(){
   // the geocoder object allows us to do latlng lookup based on address
   geocoder = new google.maps.Geocoder();
 
-
-  // var locations = [
-  //   [contentString, , , 4],
-  //   ['Coogee Beach', ,, 5],
-  //   ['Cronulla Beach', , , 3],
-  //   [contentString, 41.409736, 2.166607, 1]
-  // ];
-
   var markersData = [
   {
       lat: 41.387274,
@@ -37,26 +29,26 @@ function gmaps_init(){
       name: "Opinion usuario 1",
       address1:"calle muntaner",
       comentarios:" Muy bien cominicado, poco ruido",
-      seguridad: "Zona muy segura",
-      tranquilidad: "Muy tranquilo"
+      seguridad: 20,
+      tranquilidad: 30
    },
    {
      lat: 41.391186,
      lng:  2.161039,
      name: "Opinion usuario 2",
      address1:"calle calabria",
-     seguridad: "Zona muy segura",
+     seguridad: 60,
      comentarios:" Muy bien cominicado, poco ruido",
-     tranquilidad: "Muy tranquilo"
+     tranquilidad: 100
    },
    {
      lat: 41.401769,
      lng: 2.170201,
      name: "Opinion usuario 3",
      address1:"calle aragon",
-     seguridad: "Zona muy segura",
+     seguridad: 10,
      comentarios:" Muy bien cominicado, poco ruido",
-     tranquilidad: "Muy tranquilo"
+     tranquilidad: 30
    } // don’t insert comma in last item
 ];
 
@@ -67,7 +59,7 @@ function gmaps_init(){
   //  // Assign a maximum value for the width of the infowindow allows
   //  // greater control over the various content elements
   maxWidth: 350,
-  maxHeight: 200
+  maxHeight: 400
  });
 
  google.maps.event.addListener(map, 'click', function() {
@@ -117,17 +109,24 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
    google.maps.event.addListener(marker, 'click', function() {
 
       // Creating the content to be inserted in the infowindow
-      var iwContent = '<div id="iw-container">' +
+      var iwContent = '<div id="col-md-3"><div id="iw-container">' +
                         '<div class="iw-title">'+name+'</div>' +
                         '<div class="iw-content">' +
                           '<div class="iw-subTitle">'+address1+'</div>' +
                           '<p>'+comentarios+'</p>' +
-                          '<div class="iw-subTitle">Como es la zona?</div>' +
-                          '<p>'+seguridad+'<br>'+
+                          '<div class="iw-subTitle">Peligrosidad de la zona:</div>' +
+                          '<div class="progress">'+
+                          '<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:'+seguridad+'%">'+
+                          '<span class="sr-only">80% Complete (danger)</span>'+
+                          '</div></div>'+
                           '<div class="iw-subTitle">Es tranquila?</div>' +
-                          '<br>'+tranquilidad+'</p>'+
+                          '<div class="progress">'+
+                          '<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: '+tranquilidad+'%">'+
+                            '<span class="sr-only">60% Complete (warning)</span>'+
+                          '</div>'+
+                        '</div>'+
                         '</div>' +
-                      '</div>';
+                      '</div></div>';
 
       // including content to the Info Window.
       infoWindow.setContent(iwContent);
@@ -140,17 +139,17 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
 
   // event triggered when marker is dragged and dropped
   // google.maps.event.addListener(marker, 'click', function() {
-  //   // geocode_lookup( 'latLng', marker.getPosition() );
+  //    geocode_lookup( 'latLng', marker.getPosition() );
   //
   // });
 
   // event triggered when map is clicked
-  // google.maps.event.addListener(map, 'click', function(event) {
-  //   // marker.setPosition(event.latLng)
-  //   // geocode_lookup( 'latLng', event.latLng  );
-  //   // infowindow.open(map, marker);
-  //   $('.content-maps').append(contentString);
-  // });
+  google.maps.event.addListener(map, 'click', function(event) {
+    marker.setPosition(event.latLng);
+    geocode_lookup( 'latLng', event.latLng  );
+    infowindow.open(map, marker);
+    $('.content-maps').append(contentString);
+  });
   // google.maps.event.addListener(marker, 'click', (function(marker, i) {
   //     return function() {
   //       infowindow.setContent(locations[i][0]);
@@ -165,8 +164,8 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
 
 // move the marker to a new position, and center the map on it
 function update_map( geometry ) {
-  map.fitBounds( geometry.viewport )
-  marker.setPosition( geometry.location )
+  map.fitBounds( geometry.viewport );
+  marker.setPosition( geometry.location );
 }
 
 // fill in the UI elements with new position data
@@ -200,7 +199,7 @@ function geocode_lookup( type, value, update ) {
       if (results[0]) {
         // Always update the UI elements with new location data
         update_ui( results[0].formatted_address,
-                   results[0].geometry.location )
+                   results[0].geometry.location );
 
         // Only update the map (position marker and center map) if requested
         if( update ) { update_map( results[0].geometry ) }
@@ -279,7 +278,7 @@ function showPrice(){
     {lat:41.387069, lng:2.158160},
     {lat:41.378134, lng:2.162580}
   ];
-  var bermudaTriangle = new google.maps.Polygon({
+  var price = new google.maps.Polygon({
    paths: coords,
    strokeColor: '#FF0000',
    strokeOpacity: 0.8,
@@ -287,7 +286,7 @@ function showPrice(){
    fillColor: '#FF0000',
    fillOpacity: 0.35
  });
-    bermudaTriangle.setMap(map);
+    price.setMap(map);
 };
 
 function showPrice(){

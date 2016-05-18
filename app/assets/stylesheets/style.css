@@ -523,10 +523,13 @@ button.btn {
 }
 #iw-container {
     margin-bottom: 10px;
-    width: 350px;
+    width: 320px;
+    float: left;
+    margin-right: 10px;
+    margin-left:10px;
+    height: 300px;
 }
 #iw-container .iw-title {
-    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 22px;
     font-weight: 400;
     padding: 10px;
@@ -541,8 +544,8 @@ button.btn {
     margin-right: 1px;
     padding: 15px 5px 20px 15px;
     max-height: 140px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /*overflow-y: auto;
+    overflow-x: hidden;*/
 }
 
 .iw-subTitle {
