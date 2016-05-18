@@ -10,7 +10,7 @@ function gmaps_init(){
   var latlng = new google.maps.LatLng(41.3865828,2.1609558);
 
   var options = {
-    zoom: 13,
+    zoom: 11,
     center: latlng,
     scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -322,8 +322,33 @@ function showQuiet(){
    fillColor: '#FF0000',
    fillOpacity: 0.35
  });
-    quiet.setMap(map);
+
+   quiet.setMap(map);
+   quiet.addListener('click', showArrays);
+
+   infoWindow = new google.maps.InfoWindow;
 };
+
+function showArrays(event) {
+  // Since this polygon has only one path, we can call getPath() to return the
+  // MVCArray of LatLngs.
+  var vertices = this.getPath();
+
+  var contentString = '<h1>La zona que buscas:</h1><br>' +
+      '<p>Es la zona más tranquila</p>';
+
+  // Iterate over the vertices.
+  // for (var i =0; i < vertices.getLength(); i++) {
+  //   var xy = vertices.getAt(i);
+    contentString += '<br> En base a la opinión de los usuarios' ;
+  // }
+
+  // Replace the info window's content and position.
+  infoWindow.setContent(contentString);
+  infoWindow.setPosition(event.latLng);
+
+  infoWindow.open(map);
+}
 
 
 
