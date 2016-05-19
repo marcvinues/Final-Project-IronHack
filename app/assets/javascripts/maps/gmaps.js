@@ -27,8 +27,8 @@ function gmaps_init(){
   {
       lat: 41.387274,
       lng: 2.143991,
-      name: "Opinion usuario 1",
-      address1:"calle muntaner",
+      name: "Opinión usuario 1",
+      address1:"Calle muntaner",
       comentarios:" Muy bien cominicado, poco ruido",
       seguridad: 20,
       tranquilidad: 30,
@@ -38,8 +38,8 @@ function gmaps_init(){
    {
      lat: 41.391186,
      lng:  2.161039,
-     name: "Opinion usuario 2",
-     address1:"calle calabria",
+     name: "Opinión usuario 2",
+     address1:"Calle calabria",
      seguridad: 60,
      comentarios:" Muy bien cominicado, poco ruido",
      tranquilidad: 100,
@@ -47,10 +47,21 @@ function gmaps_init(){
      limpia: 50
    },
    {
+     lat: 41.400184,
+     lng:  2.144377,
+     name: "Opinión usuario 3",
+     address1:"Calle Via Augusta",
+     seguridad: 90,
+     comentarios:"Bien comunicado, metro cerca",
+     tranquilidad: 100,
+     ruido: 20,
+     limpia: 70
+   },
+   {
      lat: 41.401769,
      lng: 2.170201,
-     name: "Opinion usuario 3",
-     address1:"calle aragon",
+     name: "Opinión usuario 4",
+     address1:"Calle aragon",
      seguridad: 10,
      comentarios:" Muy bien cominicado, poco ruido",
      tranquilidad: 30,
@@ -119,7 +130,7 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
    var list = google.maps.event.addListener(marker, 'click', function() {
 
       // Creating the content to be inserted in the infowindow
-      var iwContent = '<div class="col-md-4"><div id="iw-container">' +
+      var iwContent = '<div class="col-md-3"><div id="iw-container">' +
                         '<div class="iw-title">'+name+'</div>' +
                         '<div class="iw-content">' +
                           '<div class="iw-subTitle">'+address1+'</div>' +
@@ -313,6 +324,8 @@ function showPrice(){
 };
 
 
+
+
 function showQuiet(){
   var coords =[
     {lat:41.399154, lng:2.130923},
@@ -336,7 +349,44 @@ function showQuiet(){
    quiet.addListener('click', showArrays);
 
    infoWindow = new google.maps.InfoWindow;
-}
+};
+
+function showTransport(){
+  var coords =[
+    {lat:41.392393, lng:2.136910},
+    {lat:41.388832, lng:2.140535},
+    {lat:41.386766, lng:2.156102},
+    {lat:41.384168, lng:2.170539},
+    {lat:41.398819, lng:2.166622}
+  ];
+  var trans = new google.maps.Polygon({
+   paths: coords,
+   strokeColor: '#40DB64',
+   strokeOpacity: 0.8,
+   strokeWeight: 2,
+   fillColor: '#40DB64',
+   fillOpacity: 0.35
+ });
+    trans.setMap(map);
+};
+
+function showSafe(){
+  var coords =[
+    {lat:41.392614, lng:2.127193},
+    {lat:41.385014, lng:2.131684},
+    {lat:41.389994, lng:2.146351},
+    {lat:41.393696, lng:2.141587}
+  ];
+  var safe = new google.maps.Polygon({
+   paths: coords,
+   strokeColor: '#DBD82C',
+   strokeOpacity: 0.8,
+   strokeWeight: 2,
+   fillColor: '#DBD82C',
+   fillOpacity: 0.35
+ });
+    safe.setMap(map);
+};
 
 function showArrays(event) {
 
