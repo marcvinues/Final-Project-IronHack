@@ -31,7 +31,9 @@ function gmaps_init(){
       address1:"calle muntaner",
       comentarios:" Muy bien cominicado, poco ruido",
       seguridad: 20,
-      tranquilidad: 30
+      tranquilidad: 30,
+      ruido: 90,
+      limpia: 50
    },
    {
      lat: 41.391186,
@@ -40,7 +42,9 @@ function gmaps_init(){
      address1:"calle calabria",
      seguridad: 60,
      comentarios:" Muy bien cominicado, poco ruido",
-     tranquilidad: 100
+     tranquilidad: 100,
+     ruido: 20,
+     limpia: 50
    },
    {
      lat: 41.401769,
@@ -49,7 +53,9 @@ function gmaps_init(){
      address1:"calle aragon",
      seguridad: 10,
      comentarios:" Muy bien cominicado, poco ruido",
-     tranquilidad: 30
+     tranquilidad: 30,
+     ruido: 40,
+     limpia: 50
    } // don’t insert comma in last item
 ];
 
@@ -84,8 +90,10 @@ function displayMarkers(){
       var comentarios = markersData[i].comentarios;
       var seguridad = markersData[i].seguridad;
       var tranquilidad = markersData[i].tranquilidad;
+      var limpia = markersData[i].limpia;
+      var ruido = markersData[i].ruido;
 
-      createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad);
+      createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad,limpia, ruido);
 
       // marker position is added to bounds variable
       bounds.extend(latlng);
@@ -97,7 +105,7 @@ function displayMarkers(){
 }
 
 // This function creates each marker and it sets their Info Window content
-function createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad){
+function createMarker(latlng, name, address1, comentarios, seguridad, tranquilidad, limpia, ruido){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
@@ -127,6 +135,16 @@ function createMarker(latlng, name, address1, comentarios, seguridad, tranquilid
                             '<span class="sr-only">60% Complete (warning)</span>'+
                           '</div>'+
                         '</div>'+
+                        '<div class="iw-subTitle">Es Ruidosa?</div>' +
+                        '<div class="progress">'+
+                        '<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: '+ruido+'%">'+
+                        '<span class="sr-only">20% Complete</span>'+
+                    '  </div></div>'+
+                    '<div class="iw-subTitle">Es Limpia?</div>' +
+                    '<div class="progress">'+
+                    '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: '+limpia+'%">'+
+                    '<span class="sr-only">20% Complete</span>'+
+                '  </div></div>'+
                         '</div>' +
                       '</div></div>';
 
