@@ -31,38 +31,38 @@
 </script>
 <div class="row">
     <div class="col-md-12" id="index-content">
-      <h1 style="text-align:center">Descúbrelo</h1>
+        <h1 style="text-align:center">Descúbrelo</h1>
         <div class="searcher">
             <!-- <form class="form-inline" method="post"> -->
             <div id='container'>
                 <div id='gmaps-canvas'></div>
-                  <div class="container-fluid container-buttons">
+                <div class="container-fluid container-buttons">
                     <div id='input'>
-                          <input id='gmaps-input-address' placeholder='Busca tu zona' type='text'/>
-                          <button type="button" name="btnprice" id="btnprice" class="buttons-filter" onclick="showPrice()">Precio</button>
-                          <button type="button" name="btntranq" id="btntranq" class="buttons-filter" onclick="showQuiet()">Tranquilidad</button>
-                          <button type="button" name="btnsafe" id="btnsafe" class="buttons-filter" onclick="showSafe()">Seguridad</button>
-                          <button type="button" name="btntrans" id="btntrans" class="buttons-filter" onclick="showTransport()">Transporte</button>
-                            <script>
-                                $('#btnprice').click(function () {
-                                    $(this).prop('disabled', true);
-                                });
-                                $('#btntranq').click(function () {
-                                    $(this).prop('disabled', true);
-                                });
+                        <input id='gmaps-input-address' placeholder='Busca tu zona' type='text'/>
+                        <button type="button" name="btnprice" id="btnprice" class="buttons-filter" onclick="showPrice()">Precio</button>
+                        <button type="button" name="btntranq" id="btntranq" class="buttons-filter" onclick="showQuiet()">Tranquilidad</button>
+                        <button type="button" name="btnsafe" id="btnsafe" class="buttons-filter" onclick="showSafe()">Seguridad</button>
+                        <button type="button" name="btntrans" id="btntrans" class="buttons-filter" onclick="showTransport()">Transporte</button>
+                        <script>
+                            $('#btnprice').click(function () {
+                                $(this).prop('disabled', true);
+                            });
+                            $('#btntranq').click(function () {
+                                $(this).prop('disabled', true);
+                            });
 
-                                $('.buttons-filter').on('click', function () {
-                                    $(this).toggleClass('active');
-                                });
-                            </script>
+                            $('.buttons-filter').on('click', function () {
+                                $(this).toggleClass('active');
+                            });
+                        </script>
                     </div>
-                      <div id='gmaps-error'></div>
-                        <div class="row">
-                            <div class="content-maps" style="width:100%;padding:30px 30px;"></div>
-                        </div>
-                  </div>
-              </div>
-          </div>
+                    <div id='gmaps-error'></div>
+                    <div class="row">
+                        <div class="content-maps" style="width:100%;padding:30px 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- </form> -->
         <!-- End form-->
     </div>
