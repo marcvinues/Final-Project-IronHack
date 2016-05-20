@@ -126,7 +126,7 @@ function gmaps_init() {
         var list = google.maps.event.addListener(marker, 'click', function() {
 
             // Creating the content to be inserted in the infowindow
-            var iwContent = '<div class="col-md-3"><div id="iw-container">' +
+            var iwContent = '<div class="col-md-4"><div id="iw-container">' +
                 '<div class="iw-title">' + name + '</div>' +
                 '<div class="iw-content">' +
                 '<div class="iw-subTitle">' + address1 + '</div>' +

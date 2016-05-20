@@ -244,11 +244,11 @@ ul li {
         opacity: 0;
     }
     80% {
-        top: 60px;
+        top: 90px;
         opacity: 1;
     }
     100% {
-        top: 60px;
+        top: 90px;
         opacity: 0;
     }
 }
@@ -257,11 +257,11 @@ ul li {
         opacity: 0;
     }
     80% {
-        top: 60px;
+        top: 90px;
         opacity: 1;
     }
     100% {
-        top: 60px;
+        top: 90px;
         opacity: 0;
     }
 }

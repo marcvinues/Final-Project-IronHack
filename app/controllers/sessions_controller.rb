@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/users'
+      redirect_to '/reg'
     else
       flash[:danger] = 'Invalid email/password combination'
       redirect_to '/login'
